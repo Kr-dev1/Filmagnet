@@ -1,0 +1,8 @@
+html,
+body {
+  background: linear-gradient(to right, #1d1d1f, #a2a6a8, normal);
+}
+
+* {
+  background: linear-gradient(to right, #1d1d1f, #a2a6a8, normal);
+}

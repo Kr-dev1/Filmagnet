@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Electrolize&family=Homenaje&family=IM+Fell+French+Canon&family=Imprima&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root{
+  height: 100vh;
+}
+
+.info {
+  min-height: 90vh;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    to bottom right,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(176, 220, 0, 1) 100%
+  );
+  /* background: linear-gradient(
+    51deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(176, 220, 0, 1) 100%
+  ); */
+  background-repeat: no-repeat;
+}
+
+
+.footer{
+  margin-top: auto;
+}
