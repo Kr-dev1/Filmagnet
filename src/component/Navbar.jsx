@@ -134,7 +134,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             style={({ isActive }) => (isActive ? activeStyling : null)}
-            to="/tvshow"
+            to="/tv"
           >
             <li
               onClick={handleSidebar}

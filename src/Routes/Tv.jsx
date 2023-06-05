@@ -64,7 +64,7 @@ const Movie = () => {
               </div>
             ))}
           </div>
-          <div className="flex justify-center items-center gap-5">
+          <div className="flex pb-8 justify-center items-center gap-5">
             <button onClick={prevPage}>
               <AiOutlineLeft />
             </button>

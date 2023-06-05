@@ -32,50 +32,56 @@ const Search = () => {
   }, [value]);
   return (
     <>
-      {result.length > 1 ? (
-        <div className="info min-h-[75vh] flex flex-col items-center gap-8 py-8 text-white text-ellipsis">
-          {result.map((results) => (
-            <div
-              key={results.id}
-              className="border-b-2 drop-shadow-md rounded-2xl"
-            >
-              <Link to={`/${results.media_type}/${results.id}`}>
-                <div className="flex items-center gap-10  min-w-[80vw] w-[80vw] last-of-type:border-b-0 py-5 ">
-                  <div>
-                    <img
-                      className="min-h-[141px] min-w-[94px] h-[141px] w-[94px]"
-                      src={
-                        results.poster_path
-                          ? `https://image.tmdb.org/t/p/w200/${results.poster_path}`
-                          : Noimage
-                      }
-                    />
-                  </div>
-                  <div className="w-full flex justify-between">
+      {result ? (
+        result.length > 1 ? (
+          <div className="info min-h-[75vh] flex flex-col items-center gap-8 py-8 text-white text-ellipsis">
+            {result.map((results) => (
+              <div
+                key={results.id}
+                className="border-b-2 drop-shadow-md rounded-2xl"
+              >
+                <Link to={`/${results.media_type}/${results.id}`}>
+                  <div className="flex items-center gap-10  min-w-[80vw] w-[80vw] last-of-type:border-b-0 py-5 ">
                     <div>
-                      <p>{results.title ? results.title : results.name}</p>
-                      <p className="capitalize py-3">{results.media_type}</p>
+                      <img
+                        className="min-h-[141px] min-w-[94px] h-[141px] w-[94px]"
+                        src={
+                          results.poster_path
+                            ? `https://image.tmdb.org/t/p/w200/${results.poster_path}`
+                            : Noimage
+                        }
+                      />
                     </div>
-                    <div>
-                      <p>
-                        {results.release_date
-                          ? results.release_date
-                          : results.first_air_date}
-                      </p>
-                      <div className="flex items-center justify-end text-right">
-                        <AiFillStar />
-                        <p className="text-right">{results.vote_average}</p>
+                    <div className="w-full flex justify-between">
+                      <div>
+                        <p>{results.title ? results.title : results.name}</p>
+                        <p className="capitalize py-3">{results.media_type}</p>
+                      </div>
+                      <div>
+                        <p>
+                          {results.release_date
+                            ? results.release_date
+                            : results.first_air_date}
+                        </p>
+                        <div className="flex items-center justify-end text-right">
+                          <AiFillStar />
+                          <p className="text-right">{results.vote_average}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="info text-white flex justify-center items-center">
+            <p>No results found for {value}</p>
+          </div>
+        )
       ) : (
-        <div className="info h-[900px] flex justify-center items-center text-white font-electric">
-          <p>No results found for {value}</p>
+        <div className="h-[900px] flex justify-center items-center">
+          <img src={loading} />
         </div>
       )}
     </>

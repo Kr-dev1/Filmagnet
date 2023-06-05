@@ -24,8 +24,7 @@ const Movie = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNjJmMjVlMGViYTMyMzkxNjZmZDNhOGNlYjUxNWEyMSIsInN1YiI6IjY0MWU3ODNiMjUzZmFiMDA5NjZiZDIwMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZfH_EQ03YfUTlgsJfmTWSYUjt02H06619WCjfPPKGJk",
+        Authorization: `Bearer ${import.meta.env.VITE_API_ACCESS_TOKEN}`,
       },
     };
 
@@ -47,7 +46,11 @@ const Movie = () => {
           <div className="grid lg:grid-cols-8 md:grid-cols-5 grid-cols-2 gap-4 px-5 py-10 text-white font-white">
             {movies.map((movie) => (
               <div className="" key={movie.id}>
-                <Link to={`/movie/${movie.id}`}>
+                <Link
+                  to={`/movie/${movie.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <img
                     className="w-full"
                     src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
